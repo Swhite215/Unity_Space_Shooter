@@ -2,11 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DestoryByContact : MonoBehaviour {
+public class BossShots : MonoBehaviour {
 
 	public GameObject explosion;
 	public GameObject playerExplosion;
-	public int scoreValue;
 	private GameController gameController;
 
 	void Start() {
@@ -24,21 +23,17 @@ public class DestoryByContact : MonoBehaviour {
 
 	void OnTriggerEnter(Collider other) {
 
-		if (other.tag == "Boundary") {
-			return;
-		}
-
-		Instantiate (explosion, transform.position, transform.rotation);
-
 		if (other.tag == "Player") {
+			Instantiate (explosion, transform.position, transform.rotation);
 			Instantiate (playerExplosion, other.transform.position, other.transform.rotation);
+
 			gameController.GameOver ();
+
+			Destroy (other.gameObject);
+			Destroy (gameObject);
 		}
-		gameController.addScore (scoreValue);
-		Destroy (other.gameObject);
-		Destroy (gameObject);
+			
 
 
 	}
-
 }

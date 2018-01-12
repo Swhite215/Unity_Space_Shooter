@@ -16,6 +16,5 @@ public class Done_WeaponController : MonoBehaviour
 	void Fire ()
 	{
 		Instantiate(shot, shotSpawn.position, shotSpawn.rotation);
-		GetComponent<AudioSource>().Play();
 	}
 }
