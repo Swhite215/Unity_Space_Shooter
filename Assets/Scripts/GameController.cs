@@ -92,7 +92,7 @@ public class GameController : MonoBehaviour {
 
 	public void GameOver() 
 	{
-		if (bossTime == true) {
+		if (bossTime == true && !boss.activeSelf) {
 			gameOverText.text = "You win! Press 'R' for Restart";
 			restart = true;
 		} else {
